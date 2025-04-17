@@ -1,4 +1,6 @@
-print("THIS ELECTRONIC CALCULATOR ONLY WORKS WITH NUMBERS OF ELECTRONS")
+print("THIS ELECTRONIC CALCULATOR ONLY WORKS WITH NUMBERS OF ELECTRONS IN AN ATOM")
+print("THE LOCATION OF THE ELEMENT IN THE PERIODIC TABLE MAY NOT WORK IF IT ENTERS THE D OR F ORBITAL")
+
 e=int(input("Enter the number of electrons:"))
 print("thinking...")
 erestantes=e
@@ -34,12 +36,14 @@ for nivel, subnivel, orbital in orbitales:
         elif nv == nivel and ev!=erestantes:
             ev += erestantes
         erestantes = 0
-print("Configuración electrónica:", configuracion)
-print("Nivel de valencia:",nv)
-print("Electones de valencia:",ev)
-print("↓↓↓Ubicación en la tabla periodica↓↓↓")
+print("------------------------------------RESULTS------------------------------------")
+print("Electronic configuration→", configuracion)
+print("Valence level→",nv)
+print("Valence electrons→",ev)
+print("↓↓↓Place in the periodic table↓↓↓")
 if ev>2:
     grupo=ev+10
 else:
     grupo=ev
-print(f"Periodo:{nv} Grupo:{grupo}")
+print(f"Period:{nv} Group:{grupo}")
+print("--------------------------------------------------------------------------------")
