@@ -62,18 +62,25 @@ def pregunta_3(cantidad: int) -> str:
     """
     cant = 1
     harshadnumeros=""
-    while cant <= cantidad:
-        xi = cant % 10
-        xii = (cant // 10) % 10
-        xiii = (cant // 10 // 10) % 10
-        xiv = (cant // 10 // 10 // 10) % 10
-        sumadigitos = xi+xii+xiii+xiv
-        if cant%sumadigitos == 0:
-            harshadnumeros = harshadnumeros+f"-{cant}"
-        cant += 1
+    sumadigitos=0
+    encontrados = 0
 
+    while encontrados < cantidad:
+        sumadigitos = 0
+        cantactual=cant
+        while cantactual > 0:
+            digito = cantactual % 10
+            sumadigitos += digito
+            cantactual = cantactual // 10
+
+        if cant%sumadigitos == 0:
+            if encontrados == 0:
+                harshadnumeros = harshadnumeros + f"{cant}"
+            else:
+                harshadnumeros = harshadnumeros+f"-{cant}"
+            encontrados +=1
+        cant += 1
     return harshadnumeros
-pregunta_3(2)
 
 def pregunta_4(number: int) -> int:
     """
@@ -83,5 +90,17 @@ def pregunta_4(number: int) -> int:
     Retorna :
         int : Retorna un la suma de los digitos del factorial de un numero, pero cuando el digito es par se suma 0
     """
-
-    return -1
+    contadorsito=1
+    ultimodigit=0
+    digitselector=0
+    sumadedigitos=0
+    almacenador=1
+    while contadorsito <= number:
+        almacenador = almacenador*contadorsito
+        contadorsito += 1
+    while almacenador > 0:
+        ultimodigit = almacenador % 10
+        if not(ultimodigit%2==0):
+            sumadedigitos += ultimodigit
+        almacenador = almacenador // 10
+    return sumadedigitos
