@@ -8,8 +8,21 @@ def pregunta_1(number_init: int, step: int) -> int:
     Retorna :
         int : Retorna la cantidad de numeros abundantes
     """
-
-    return -1
+    #hallar cuantos numeros divisibles hay para 28
+    cont=1
+    abundante=0
+    while cont<=5:
+        sumatoria=0
+        div = 1
+        while div < number_init:
+            if number_init % div == 0:
+                sumatoria += div
+            div += 1
+        if sumatoria > number_init:
+            abundante += 1
+        number_init += step
+        cont += 1
+    return abundante
 
 
 def pregunta_2(number_init: int, step: int) -> int:
@@ -22,9 +35,22 @@ def pregunta_2(number_init: int, step: int) -> int:
     Retorna :
         int : Retorna la cantidad de numeros de Armstrong
     """
+    caunt=1
+    armstrongunumbers=0
+    longdn=len(str(number_init))
 
-    return -1
+    while caunt<=10:
+        longdn = len(str(number_init))
+        x = number_init % 10
+        xx = (number_init // 10) % 10
+        xxx = (number_init // 10 // 10) % 10
+        xxxx = (number_init // 10 // 10 // 10) % 10
+        if (x ** longdn + xx ** longdn + xxx ** longdn + xxxx ** longdn) == number_init:
+            armstrongunumbers += 1
+        number_init += step
+        caunt += 1
 
+    return armstrongunumbers
 
 def pregunta_3(cantidad: int) -> str:
     """
@@ -34,9 +60,20 @@ def pregunta_3(cantidad: int) -> str:
     Retorna :
         str : Retorna un str de los primeros n numeros Harshad
     """
+    cant = 1
+    harshadnumeros=""
+    while cant <= cantidad:
+        xi = cant % 10
+        xii = (cant // 10) % 10
+        xiii = (cant // 10 // 10) % 10
+        xiv = (cant // 10 // 10 // 10) % 10
+        sumadigitos = xi+xii+xiii+xiv
+        if cant%sumadigitos == 0:
+            harshadnumeros = harshadnumeros+f"-{cant}"
+        cant += 1
 
-    return ""
-
+    return harshadnumeros
+pregunta_3(2)
 
 def pregunta_4(number: int) -> int:
     """
