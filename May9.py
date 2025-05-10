@@ -9,13 +9,13 @@ def pregunta_1(num1: int, num2: int, multiplo: int) ->int:
         int : la cantidad de multiplos que hay
     """
     contador=0
-    for x in range(num1,num2):
-        for y in range(num1,num2):
+    for x in range(num1,num2+1):
+        suma = 0
+        for y in range(num1,num2+1):
             suma=x + y
             if suma%multiplo==0:
                 contador+=1
     return contador
-print(pregunta_1(5,8,7))
 
 def pregunta_2(n : int) -> str: 
     """
@@ -24,7 +24,12 @@ def pregunta_2(n : int) -> str:
     Retorna:
         str : cadena de numeros que no tienen el digito 2
     """
-    return None
+    texto=""
+    for num in range(1,n+1):
+        if not(num==2):
+            texto += f"{num} "
+
+    return texto
 
 def pregunta_3(frase : str) -> tuple[int,int]:
     """
@@ -33,7 +38,14 @@ def pregunta_3(frase : str) -> tuple[int,int]:
     Retorna:
         Tuple[int,int] : El primer valor es la cantidad de palabras en la frase. El segundo valor es la cantidad de letras en la frase.
     """
-    return None 
+    palabras=1
+    letras=0
+    for i in frase:
+        if i==" ":
+            palabras+=1
+        else:
+            letras+=1
+    return palabras,letras
 
 def pregunta_4(n : int, nota_inicial : int) -> tuple[int, float]:
     """
@@ -44,4 +56,12 @@ def pregunta_4(n : int, nota_inicial : int) -> tuple[int, float]:
         Tuple[int, float] : El primer valor es la cantidad de notas mayores o iguales a 14. 
                             El segundo valor es el promedio de todas las notas generadas, redondeado a 2 decimales.
     """
-    return None
+    contadordenotas=0
+
+    sumadorero=0
+    for i in range(nota_inicial,nota_inicial+n):
+        sumadorero+=i
+        if i>=14:
+            contadordenotas+=1
+    promediador=sumadorero/n
+    return contadordenotas,promediador
