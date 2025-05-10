@@ -26,7 +26,7 @@ def pregunta_2(n : int) -> str:
     """
     haces=""
     for num in range(1,n+1):
-        if not(num==2):
+        if "2" not in str(num):
             haces += f"{num} "
 
     return haces
@@ -56,12 +56,14 @@ def pregunta_4(n : int, nota_inicial : int) -> tuple[int, float]:
         Tuple[int, float] : El primer valor es la cantidad de notas mayores o iguales a 14. 
                             El segundo valor es el promedio de todas las notas generadas, redondeado a 2 decimales.
     """
-    en=0
+    envideos = 0
+    xddddddd = 0
 
-    videoxddddd=0
-    for i in range(nota_inicial,nota_inicial+n):
-        videoxddddd+=i
-        if i>=14:
-            en+=1
-    promediador=videoxddddd/n
-    return en,promediador
+    for i in range(n):
+        nota = nota_inicial + i
+        envideos += nota
+        if nota >= 14:
+            xddddddd += 1
+
+    promedio = round(envideos / n, 2)
+    return xddddddd, promedio
