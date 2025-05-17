@@ -66,14 +66,14 @@ def pregunta_4(posiciones: list[int]) -> list[int]:
 
     listafinal=[]
     unicas = []
-    for p in posiciones:
-        if p not in unicas:
-            unicas.append(p)
+    for q in posiciones:
+        if q not in unicas:
+            unicas.append(q)
 
     for a in range(max(unicas)+1):
         listafinal.append(0)
 
-    for p in unicas:
-        listafinal[p] = p
+    for q in unicas:
+        listafinal[q] = q
 
     return listafinal
